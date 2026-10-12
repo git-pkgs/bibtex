@@ -16,6 +16,9 @@ type Name struct {
 	Jr    string `json:"jr,omitempty"`
 	// Others marks the "and others" placeholder for omitted names.
 	Others bool `json:"others,omitempty"`
+	// Literal marks a name written entirely in braces, which is how BibTeX
+	// files give organisations.
+	Literal bool `json:"literal,omitempty"`
 }
 
 // ParseNames splits an author or editor value on "and" outside braces and
@@ -130,6 +133,9 @@ func parseName(raw string) (Name, bool) {
 				}
 				vonEnd = i
 			}
+		}
+		if len(w) == 1 && isBracedGroup(w[0]) {
+			n.Literal = true
 		}
 		if vonStart < 0 {
 			n.First, n.Last = join(w[:len(w)-1]), join(w[len(w)-1:])
@@ -250,4 +256,25 @@ func specialIsLower(s string) bool {
 		}
 	}
 	return false
+}
+
+// isBracedGroup reports whether w is one brace group, such as
+// {World Health Organization}, rather than a special character like {\"O}.
+func isBracedGroup(w string) bool {
+	if len(w) < 2 || w[0] != '{' || w[len(w)-1] != '}' || w[1] == '\\' {
+		return false
+	}
+	depth := 0
+	for i := 0; i < len(w); i++ {
+		switch w[i] {
+		case '{':
+			depth++
+		case '}':
+			depth--
+			if depth == 0 && i < len(w)-1 {
+				return false
+			}
+		}
+	}
+	return depth == 0
 }

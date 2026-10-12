@@ -69,7 +69,7 @@ func TestParseSoftwareEntry(t *testing.T) {
 	wantAuthors := []bibtex.Name{
 		{First: jane, Last: doe},
 		{First: "Jan", Von: vanDer, Last: "Berg"},
-		{Last: "Example Consortium"},
+		{Last: "Example Consortium", Literal: true},
 	}
 	if !reflect.DeepEqual(authors, wantAuthors) {
 		t.Errorf("authors %+v", authors)
@@ -275,4 +275,32 @@ func entryKeys(f *bibtex.File) []string {
 		out = append(out, e.Key)
 	}
 	return out
+}
+
+func TestTextVerbatimFields(t *testing.T) {
+	src := `@misc{k,
+  url    = {https://example.org/~user/a--b\_c\%20},
+  doi    = {10.1000/x--y_{z}},
+  eprint = {2101.00001},
+  file   = {\url{https://stanford.edu/~boyd/p.pdf}},
+  pdf    = {\href{https://example.org/p.pdf}{PDF}},
+  note   = {a~b--c}
+}`
+	f, err := bibtex.Parse([]byte(src))
+	if err != nil {
+		t.Fatal(err)
+	}
+	e := &f.Entries[0]
+	for field, want := range map[string]string{
+		"url":    "https://example.org/~user/a--b_c%20",
+		"doi":    "10.1000/x--y_z",
+		"eprint": "2101.00001",
+		"file":   "https://stanford.edu/~boyd/p.pdf",
+		"pdf":    "https://example.org/p.pdf",
+		"note":   "a b–c",
+	} {
+		if got := e.Text(field); got != want {
+			t.Errorf("Text(%q) = %q, want %q", field, got, want)
+		}
+	}
 }

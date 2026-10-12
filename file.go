@@ -55,8 +55,35 @@ func (e *Entry) Get(name string) string {
 	return v
 }
 
-// Text returns a field converted to plain Unicode text with PlainText.
-func (e *Entry) Text(name string) string { return PlainText(e.Get(name)) }
+// verbatimFields are biblatex's verbatim fields, where ~ and -- are literal.
+var verbatimFields = map[string]bool{"url": true, "doi": true, "eprint": true, "file": true, "pdf": true}
+
+// Text returns a field converted to plain Unicode text with PlainText. The
+// url, doi, eprint, file and pdf fields are returned with braces, \url{} and
+// escapes such as \_ removed and other characters unchanged.
+func (e *Entry) Text(name string) string {
+	v := e.Get(name)
+	if verbatimFields[strings.ToLower(name)] {
+		return verbatim(v)
+	}
+	return PlainText(v)
+}
+
+var verbatimEscapes = strings.NewReplacer(`\_`, "_", `\%`, "%", `\&`, "&", `\#`, "#", `\$`, "$", `\~`, "~", "{", "", "}", "")
+
+func verbatim(v string) string {
+	v = strings.TrimSpace(v)
+	for _, cmd := range []string{`\url`, `\path`, `\href`} {
+		if rest, ok := strings.CutPrefix(v, cmd); ok {
+			// \href{target}{text}: keep the target.
+			if arg, _, found := strings.Cut(strings.TrimPrefix(strings.TrimSpace(rest), "{"), "}"); found {
+				v = arg
+			}
+			break
+		}
+	}
+	return strings.TrimSpace(verbatimEscapes.Replace(v))
+}
 
 // Authors returns the parsed author field.
 func (e *Entry) Authors() []Name { return ParseNames(e.Get("author")) }

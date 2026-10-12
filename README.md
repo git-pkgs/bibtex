@@ -39,7 +39,7 @@ func main() {
 
 Use `Parse(data)` for bytes from a Git blob or another source and `ParseWithOptions(data, opts)` to set limits. `Read(reader, opts)` reads from an `io.Reader` and leaves it open. Results store copies of their strings, so callers may reuse input buffers once a call returns. `go run ./examples/read path/to/CITATION.bib` runs a version of this example; `-extract` reads a README and `-` reads a Git blob from standard input.
 
-`Get` returns a field with macros expanded and `#` concatenation applied but TeX markup and inner braces intact (`{GPU}`, `M{\"u}ller`), while `Text` also runs it through `PlainText` to give `GPU` and `Müller`. Field names and entry types are lowercased, and citation keys are returned with their original case. Each entry stores its line, column and byte range in the input.
+`Get` returns a field with macros expanded and `#` concatenation applied but TeX markup and inner braces intact (`{GPU}`, `M{\"u}ller`), while `Text` also runs it through `PlainText` to give `GPU` and `Müller`. For biblatex's verbatim fields (`url`, `doi`, `eprint`, `file` and `pdf`), `Text` removes braces, `\url{}` and escapes such as `\_` and leaves `~` and `--` as written. Field names and entry types are lowercased, and citation keys are returned with their original case. Each entry stores its line, column and byte range in the input.
 
 ### READMEs
 
@@ -47,7 +47,7 @@ Use `Parse(data)` for bytes from a Git blob or another source and `ParseWithOpti
 
 ### Names
 
-`ParseNames` splits a value on `and` outside braces and applies BibTeX's rules for `First von Last`, `von Last, First` and `von Last, Jr, First`, including the brace and accent rules that assign a word to the von part. A fully braced name such as `{World Health Organization}` is returned whole in `Last`, and `and others` becomes a `Name` with `Others` set. On 5,248 names collected from `CITATION.bib` files and READMEs, the split matched pybtex except for comma-separated lists such as `Jifeng Dai, Yi Li, Kaiming He`, which this library reads as several names.
+`ParseNames` splits a value on `and` outside braces and applies BibTeX's rules for `First von Last`, `von Last, First` and `von Last, Jr, First`, including the brace and accent rules that assign a word to the von part. A fully braced name such as `{World Health Organization}` is returned whole in `Last` with `Literal` set, which is how BibTeX files mark organisations, and `and others` becomes a `Name` with `Others` set. On 5,248 names collected from `CITATION.bib` files and READMEs, the split matched pybtex except for comma-separated lists such as `Jifeng Dai, Yi Li, Kaiming He`, which this library reads as several names.
 
 ### Errors
 
