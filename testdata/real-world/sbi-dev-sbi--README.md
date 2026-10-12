@@ -1,0 +1,260 @@
+[![PyPI version](https://badge.fury.io/py/sbi.svg)](https://badge.fury.io/py/sbi)
+[![Conda Version](https://img.shields.io/conda/vn/conda-forge/sbi.svg)](https://github.com/conda-forge/sbi-feedstock)
+[![Contributions welcome](https://img.shields.io/badge/contributions-welcome-brightgreen.svg?style=flat)](https://sbi.readthedocs.io/en/stable/contributing.html)
+[![Tests](https://github.com/sbi-dev/sbi/actions/workflows/cd.yml/badge.svg)](https://github.com/sbi-dev/sbi/actions)
+[![codecov](https://codecov.io/gh/sbi-dev/sbi/branch/main/graph/badge.svg)](https://codecov.io/gh/sbi-dev/sbi)
+[![GitHub license](https://img.shields.io/github/license/sbi-dev/sbi)](https://github.com/sbi-dev/sbi/blob/master/LICENSE.txt)
+[![DOI](https://joss.theoj.org/papers/10.21105/joss.07754/status.svg)](https://doi.org/10.21105/joss.07754)
+[![NumFOCUS affiliated](https://img.shields.io/badge/NumFOCUS-affiliated%20project-orange.svg?style=flat&colorA=E1523D&colorB=007D8A)](https://numfocus.org/sponsored-projects/affiliated-projects)
+
+## `sbi`: Simulation-Based Inference
+
+[Getting Started](https://sbi.readthedocs.io/en/stable/tutorials/00_getting_started.html) |
+[Documentation](https://sbi.readthedocs.io/en/stable/) | [Discord Server](https://discord.gg/VPkV7XPj7k)
+
+`sbi` is a Python package for simulation-based inference, designed to meet the needs of
+both researchers and practitioners. Whether you need fine-grained control or an
+easy-to-use interface, `sbi` has you covered.
+
+With `sbi`, you can perform parameter inference using Bayesian inference: Given a
+simulator that models a real-world process, SBI estimates the full posterior
+distribution over the simulator’s parameters based on observed data. This distribution
+indicates the most likely parameter values while additionally quantifying uncertainty
+and revealing potential interactions between parameters.
+
+### Key Features of `sbi`
+
+`sbi` offers a blend of flexibility and ease of use:
+
+- **Low-Level Interfaces**: For those who require maximum control over the inference
+  process, `sbi` provides low-level interfaces that allow you to fine-tune many aspects
+  of your workflow.
+- **High-Level Interfaces**: If you prefer simplicity and efficiency, `sbi` also offers
+  high-level interfaces that enable quick and easy implementation of complex inference
+  tasks.
+
+In addition, `sbi` supports a wide range of state-of-the-art inference algorithms (see
+below for a list of implemented methods):
+
+- **Amortized Methods**: These methods enable the reuse of posterior estimators across
+  multiple observations without the need to retrain.
+- **Sequential Methods**: These methods focus on individual observations, optimizing the
+  number of simulations required.
+
+Beyond inference, `sbi` also provides:
+
+- **Validation Tools**: Built-in methods to validate and verify the accuracy of your
+  inferred posteriors.
+- **Plotting and Analysis Tools**: Comprehensive functions for visualizing and analyzing
+  results, helping you interpret the posterior distributions with ease.
+
+Getting started with `sbi` is straightforward, requiring only a few lines of code:
+
+```python
+from sbi.inference import NPE
+# Given: parameters theta and corresponding simulations x
+inference = NPE(prior=prior)
+inference.append_simulations(theta, x).train()
+posterior = inference.build_posterior()
+```
+
+### Installation
+
+`sbi` requires Python 3.10 or higher. While a GPU isn't necessary, it can
+improve performance in some cases. We recommend using
+[`uv`](https://docs.astral.sh/uv/) for package management:
+
+```bash
+uv pip install sbi
+```
+
+Pyro and PyMC MCMC samplers are optional. Install them as needed:
+
+```bash
+uv pip install "sbi[pyro]"   # for Pyro samplers (HMC, NUTS)
+uv pip install "sbi[pymc]"   # for PyMC samplers (HMC, NUTS, Slice)
+uv pip install "sbi[all]"    # both Pyro and PyMC
+```
+
+For conda, pixi, pip, and other installation methods, see the
+[full installation guide](https://sbi.readthedocs.io/en/stable/installation.html).
+
+### Testing the installation
+
+Open a Python prompt and run
+
+```python
+from sbi.examples.minimal import simple
+posterior = simple()
+print(posterior)
+```
+
+## Tutorials
+
+If you're new to `sbi`, we recommend starting with our [Getting
+Started](https://sbi.readthedocs.io/en/latest/tutorials/00_getting_started.html) tutorial.
+
+The tutorials are Jupyter notebooks in
+[`docs/tutorials/`](https://github.com/sbi-dev/sbi/tree/main/docs/tutorials). To run
+them on your own machine, first follow the [installation instructions](#installation)
+above.
+
+You might also find this tutorial paper useful: [Deistler, M., Boelts, J., Steinbach, P., Moss, G., Moreau, T., Gloeckler, M., ... & Macke, J. H. (2025). Simulation-based inference: A practical guide. arXiv preprint arXiv:2508.12939.](https://arxiv.org/abs/2508.12939). It describes the SBI workflow and offers practical guidelines and diagnostic tools for every stage of the process: from setting up the simulator and prior, choosing and training inference networks, to performing inference and validating the results. It also includes several worked examples.
+
+## Inference Algorithms
+
+The following inference algorithms are currently available. You can find instructions on
+how to run each of these methods
+[here](https://sbi.readthedocs.io/en/latest/tutorials/16_implemented_methods.html).
+
+### Neural Posterior Estimation: amortized (NPE) and sequential (SNPE)
+
+- [`(S)NPE_A`](https://sbi.readthedocs.io/en/latest/api_reference/_autosummary/sbi.inference.NPE_A.html)
+  (including amortized single-round `NPE`) from Papamakarios G and Murray I [_Fast
+  ε-free Inference of Simulation Models with Bayesian Conditional Density
+  Estimation_](https://proceedings.neurips.cc/paper/2016/hash/6aca97005c68f1206823815f66102863-Abstract.html)
+  (NeurIPS 2016).
+
+- [`(S)NPE_B`](https://sbi.readthedocs.io/en/latest/api_reference/_autosummary/sbi.inference.NPE_B.html)
+  from Lueckmann JM, Goncalves P, Bassetto G, Öcal K, Nonnenmacher M, and Macke J [_Flexible
+  statistical inference for mechanistic models of neural dynamics_](https://arxiv.org/abs/1711.01861)
+  (NeurIPS 2017).
+
+- [`(S)NPE_C`](https://sbi.readthedocs.io/en/latest/api_reference/_autosummary/sbi.inference.NPE_C.html)
+  or `APT` from Greenberg D, Nonnenmacher M, and Macke J [_Automatic Posterior
+  Transformation for likelihood-free inference_](https://arxiv.org/abs/1905.07488) (ICML
+  2019).
+
+- `TSNPE` from Deistler M, Goncalves P, and Macke J [_Truncated proposals for scalable
+  and hassle-free simulation-based inference_](https://arxiv.org/abs/2210.04815)
+  (NeurIPS 2022).
+
+- [`FMPE`](https://sbi.readthedocs.io/en/latest/api_reference/_autosummary/sbi.inference.FMPE.html)
+  from Wildberger, J., Dax, M., Buchholz, S., Green, S., Macke, J. H., & Schölkopf, B.
+  [_Flow matching for scalable simulation-based
+  inference_](https://proceedings.neurips.cc/paper_files/paper/2023/hash/3663ae53ec078860bb0b9c6606e092a0-Abstract-Conference.html).
+  (NeurIPS 2023).
+
+- [`NPSE`](https://sbi.readthedocs.io/en/latest/api_reference/_autosummary/sbi.inference.NPSE.html) from
+  Geffner, T., Papamakarios, G., & Mnih, A. [_Compositional score modeling for
+  simulation-based inference_](https://proceedings.mlr.press/v202/geffner23a.html).
+  (ICML 2023)
+
+### Neural Likelihood Estimation: amortized (NLE) and sequential (SNLE)
+
+- [`(S)NLE`](https://sbi.readthedocs.io/en/latest/api_reference/_autosummary/sbi.inference.NLE_A.html)
+  or just `SNL` from Papamakarios G, Sterrat DC and Murray I [_Sequential Neural
+  Likelihood_](https://arxiv.org/abs/1805.07226) (AISTATS 2019).
+
+### Neural Ratio Estimation: amortized (NRE) and sequential (SNRE)
+
+- [`(S)NRE_A`](https://sbi.readthedocs.io/en/latest/api_reference/_autosummary/sbi.inference.NRE_A.html)
+  or `AALR` from Hermans J, Begy V, and Louppe G. [_Likelihood-free Inference with
+  Amortized Approximate Likelihood Ratios_](https://arxiv.org/abs/1903.04057) (ICML
+  2020).
+
+- [`(S)NRE_B`](https://sbi.readthedocs.io/en/latest/api_reference/_autosummary/sbi.inference.NRE_B.html)
+  or `SRE` from Durkan C, Murray I, and Papamakarios G. [_On Contrastive Learning for
+  Likelihood-free Inference_](https://arxiv.org/abs/2002.03712) (ICML 2020).
+
+- [`(S)NRE_C`](https://sbi.readthedocs.io/en/latest/api_reference/_autosummary/sbi.inference.NRE_C.html)
+  or `NRE-C` from Miller BK, Weniger C, Forré P. [_Contrastive Neural Ratio
+  Estimation_](https://arxiv.org/abs/2210.06170) (NeurIPS 2022).
+
+- [`BNRE`](https://sbi.readthedocs.io/en/latest/api_reference/_autosummary/sbi.inference.BNRE.html) from
+  Delaunoy A, Hermans J, Rozet F, Wehenkel A, and Louppe G. [_Towards Reliable
+  Simulation-Based Inference with Balanced Neural Ratio
+  Estimation_](https://arxiv.org/abs/2208.13624) (NeurIPS 2022).
+
+### Neural Variational Inference, amortized (NVI) and sequential (SNVI)
+
+- [`SNVI`](https://sbi.readthedocs.io/en/latest/api_reference/_autosummary/sbi.inference.VIPosterior.html)
+  from Glöckler M, Deistler M, Macke J, [_Variational methods for simulation-based
+  inference_](https://openreview.net/forum?id=kZ0UYdhqkNY) (ICLR 2022).
+
+### Mixed Neural Likelihood Estimation (MNLE)
+
+- [`MNLE`](https://sbi.readthedocs.io/en/latest/api_reference/_autosummary/sbi.inference.MNLE.html) from
+  Boelts J, Lueckmann JM, Gao R, Macke J, [_Flexible and efficient simulation-based
+  inference for models of decision-making_](https://elifesciences.org/articles/77220)
+  (eLife 2022).
+
+## Feedback and Contributions
+
+We welcome any feedback on how `sbi` is working for your inference problems (see
+[Discussions](https://github.com/sbi-dev/sbi/discussions)) and are happy to receive bug
+reports, pull requests, and other feedback (see
+[contribute](https://sbi.readthedocs.io/en/latest/contributing.html)). We wish to maintain a
+positive and respectful community; please read our [Code of
+Conduct](CODE_OF_CONDUCT.md). To report a security vulnerability, please see our
+[Security Policy](SECURITY.md).
+
+## Acknowledgments
+
+`sbi` is the successor (using PyTorch) of the
+[`delfi`](https://github.com/mackelab/delfi) package. It started as a fork of Conor M.
+Durkan's `lfi`. `sbi` runs as a community project. See also
+[credits](https://github.com/sbi-dev/sbi/blob/master/docs/credits.md).
+
+## Support
+
+`sbi` has been supported by the German Federal Ministry of Education and Research (BMBF)
+through project ADIMEM (FKZ 01IS18052 A-D), project SiMaLeSAM (FKZ 01IS21055A) and the
+Tübingen AI Center (FKZ 01IS18039A). Since 2024, `sbi` is supported by the appliedAI
+Institute for Europe, and by NumFOCUS.
+
+## License
+
+[Apache License Version 2.0 (Apache-2.0)](https://www.apache.org/licenses/LICENSE-2.0)
+
+## Citation
+
+The `sbi` package has grown and improved significantly since its initial release, with
+contributions from a large and diverse community. To reflect these developments and the
+expanded functionality, we published an [updated JOSS
+paper](https://doi.org/10.21105/joss.07754). We encourage you to cite this
+newer version as the primary reference:
+
+```latex
+@article{BoeltsDeistler_sbi_2025,
+  doi = {10.21105/joss.07754},
+  url = {https://doi.org/10.21105/joss.07754},
+  year = {2025},
+  publisher = {The Open Journal},
+  volume = {10},
+  number = {108},
+  pages = {7754},
+  author = {Jan Boelts and Michael Deistler and Manuel Gloeckler and Álvaro Tejero-Cantero and Jan-Matthis Lueckmann and Guy Moss and Peter Steinbach and Thomas Moreau and Fabio Muratore and Julia Linhart and Conor Durkan and Julius Vetter and Benjamin Kurt Miller and Maternus Herold and Abolfazl Ziaeemehr and Matthijs Pals and Theo Gruner and Sebastian Bischoff and Nastya Krouglova and Richard Gao and Janne K. Lappalainen and Bálint Mucsányi and Felix Pei and Auguste Schulz and Zinovia Stefanidi and Pedro Rodrigues and Cornelius Schröder and Faried Abu Zaid and Jonas Beck and Jaivardhan Kapoor and David S. Greenberg and Pedro J. Gonçalves and Jakob H. Macke},
+  title = {sbi reloaded: a toolkit for simulation-based inference workflows},
+  journal = {Journal of Open Source Software}
+}
+```
+
+This updated paper, with its expanded author list, reflects the broader community
+contributions and the package's enhanced capabilities in releases
+[0.23.0](https://github.com/sbi-dev/sbi/releases/tag/v0.23.3) and later.
+
+If you are using a version of `sbi` prior to 0.23.0, please cite the original sbi
+software paper:
+
+```latex
+@article{tejero-cantero2020sbi,
+  doi = {10.21105/joss.02505},
+  url = {https://doi.org/10.21105/joss.02505},
+  year = {2020},
+  publisher = {The Open Journal},
+  volume = {5},
+  number = {52},
+  pages = {2505},
+  author = {Alvaro Tejero-Cantero and Jan Boelts and Michael Deistler and Jan-Matthis Lueckmann and Conor Durkan and Pedro J. Gonçalves and David S. Greenberg and Jakob H. Macke},
+  title = {sbi: A toolkit for simulation-based inference},
+  journal = {Journal of Open Source Software}
+}
+```
+
+Regardless of which software paper you cite, please also remember to cite the original
+research articles describing the specific sbi-algorithm(s) you are using.
+
+Specific releases of `sbi` are also citable via
+[Zenodo](https://zenodo.org/records/15034786), where we generate a new software DOI for
+each release.

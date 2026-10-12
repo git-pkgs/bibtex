@@ -1,0 +1,58 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+permissions: {}
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - uses: actions/setup-go@b7ad1dad31e06c5925ef5d2fc7ad053ef454303e # v7.0.0
+        with:
+          go-version-file: go.mod
+          cache: false
+      - name: Check dependency graph
+        run: test "$(go list -m all)" = github.com/git-pkgs/bibtex
+      - name: Build and test
+        run: |
+          go build ./...
+          go test ./...
+          go test -race ./...
+      - name: Check generated files
+        run: |
+          curl --fail --location --output "$RUNNER_TEMP/UnicodeData.txt" https://www.unicode.org/Public/17.0.0/ucd/UnicodeData.txt
+          go run ./internal/generate "$RUNNER_TEMP/UnicodeData.txt" > compose_generated.go
+          git diff --exit-code -- compose_generated.go
+      - name: Fuzz public entry points
+        run: |
+          go test -run '^$' -fuzz=FuzzParse -fuzztime=15s
+          go test -run '^$' -fuzz=FuzzPlainText -fuzztime=15s
+      - name: Benchmarks
+        run: go test -run '^$' -bench=. -benchmem -benchtime=100x
+
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - uses: actions/setup-go@b7ad1dad31e06c5925ef5d2fc7ad053ef454303e # v7.0.0
+        with:
+          go-version-file: go.mod
+          cache: false
+      - uses: golangci/golangci-lint-action@ba0d7d2ec06a0ea1cb5fa41b2e4a3ab91d21278a # v9
+        with:
+          version: latest
+          args: --enable gocritic,gocognit,gocyclo,maintidx,dupl,mnd,unparam,ireturn,goconst,errcheck ./...
+      - name: Vulnerabilities and reachability
+        run: |
+          go run golang.org/x/vuln/cmd/govulncheck@v1.7.0 ./...
+          go run golang.org/x/tools/cmd/deadcode@v0.49.0 -test ./...

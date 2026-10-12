@@ -1,0 +1,146 @@
+[
+  {
+    "file": "inpho-topic-explorer--citation.bib",
+    "source_url": "https://github.com/inpho/topic-explorer/blob/master/citation.bib",
+    "git_blob": "d6de3809912d1097d8f778340aaa232d726c5562",
+    "retrieved_on": "2026-10-12"
+  },
+  {
+    "file": "xwinxu-bayeSDE--CITATION.bib",
+    "source_url": "https://github.com/xwinxu/bayeSDE/blob/main/CITATION.bib",
+    "git_blob": "3c6650cf3c6827ff21e595977d9ec8c546377721",
+    "retrieved_on": "2026-10-12"
+  },
+  {
+    "file": "Kkevsterrr-geneva--citation.bib",
+    "source_url": "https://github.com/Kkevsterrr/geneva/blob/master/citation.bib",
+    "git_blob": "b3fddd6a0a5f416feed47f62eb0c6241fdce6e56",
+    "retrieved_on": "2026-10-12"
+  },
+  {
+    "file": "chromatix-team-chromatix--CITATION.bib",
+    "source_url": "https://github.com/chromatix-team/chromatix/blob/main/CITATION.bib",
+    "git_blob": "cd48a0f2022388caf98deb2014b82434373ba119",
+    "retrieved_on": "2026-10-12"
+  },
+  {
+    "file": "pharmcat-replicatebe.jl--CITATION.bib",
+    "source_url": "https://github.com/PharmCat/ReplicateBE.jl/blob/master/CITATION.bib",
+    "git_blob": "19e91bca6f727025c4e6b57788ff3fbc8fa25327",
+    "retrieved_on": "2026-10-12"
+  },
+  {
+    "file": "juliaocean-aibecs.jl--CITATION.bib",
+    "source_url": "https://github.com/JuliaOcean/AIBECS.jl/blob/main/CITATION.bib",
+    "git_blob": "b6054993336520e7b88183a94d67f521830a77da",
+    "retrieved_on": "2026-10-12"
+  },
+  {
+    "file": "numpy-numpy--CITATION.bib",
+    "source_url": "https://github.com/numpy/numpy/blob/main/CITATION.bib",
+    "git_blob": "66e7dfd372a48903f0cd6d076130fb6a6c92f2e0",
+    "retrieved_on": "2026-10-12"
+  },
+  {
+    "file": "a-herzog-mini-callcenter-simulator--CITATION.bib",
+    "source_url": "https://github.com/A-Herzog/Mini-Callcenter-Simulator/blob/master/CITATION.bib",
+    "git_blob": "d563695090dca3c8c1ce925f325814d81bd59bb3",
+    "retrieved_on": "2026-10-12"
+  },
+  {
+    "file": "e2nIEE-pandapower--CITATION.bib",
+    "source_url": "https://github.com/e2nIEE/pandapower/blob/develop/CITATION.bib",
+    "git_blob": "bf6217ad0c30784ae1ea876647814a83e7863771",
+    "retrieved_on": "2026-10-12"
+  },
+  {
+    "file": "GeoStat-Framework-GSTools--CITATION.bib",
+    "source_url": "https://github.com/GeoStat-Framework/GSTools/blob/main/CITATION.bib",
+    "git_blob": "3ea8812247801de72deea4f629aed6e0ccf55c8a",
+    "retrieved_on": "2026-10-12"
+  },
+  {
+    "file": "bat-BAT.jl--CITATION.bib",
+    "source_url": "https://github.com/bat/BAT.jl/blob/main/CITATION.bib",
+    "git_blob": "2b04ac480db51d5e52578a1ed3ae415663e6e2ad",
+    "retrieved_on": "2026-10-12"
+  },
+  {
+    "file": "ParallelDots-generic-sku-detection-benchmark--README.md",
+    "source_url": "https://github.com/ParallelDots/generic-sku-detection-benchmark/blob/master/README.md",
+    "git_blob": "4bdb467434c688078321c8bbe29630f17b44d9bb",
+    "retrieved_on": "2026-10-12"
+  },
+  {
+    "file": "SCIR-HI-Huatuo-Llama-Med-Chinese--README.md",
+    "source_url": "https://github.com/SCIR-HI/Huatuo-Llama-Med-Chinese/blob/main/README.md",
+    "git_blob": "b2457f64df9913702ba1a49793ee821f52c683df",
+    "retrieved_on": "2026-10-12"
+  },
+  {
+    "file": "mantzaris-lmdiskann.jl--README.md",
+    "source_url": "https://github.com/mantzaris/LMDiskANN.jl/blob/main/README.md",
+    "git_blob": "d04f9986c808f1dcd322c5dfc0089daa18e0dcd3",
+    "retrieved_on": "2026-10-12"
+  },
+  {
+    "file": "tysam-code-hlb-gpt--README.md",
+    "source_url": "https://github.com/tysam-code/hlb-gpt/blob/main/README.md",
+    "git_blob": "6ac482e64efff454a50334cf3b58af8e271f5c31",
+    "retrieved_on": "2026-10-12"
+  },
+  {
+    "file": "PengyiZhang-SlimYOLOv3--README.md",
+    "source_url": "https://github.com/PengyiZhang/SlimYOLOv3/blob/master/README.md",
+    "git_blob": "b0d9b60c631c58c5e3132006c1cf9764d7b3ce0d",
+    "retrieved_on": "2026-10-12"
+  },
+  {
+    "file": "sintefore-timestruct.jl--README.md",
+    "source_url": "https://github.com/sintefore/TimeStruct.jl/blob/main/README.md",
+    "git_blob": "4a25c31d76066faa4f67fa69b6034d89181c8dbc",
+    "retrieved_on": "2026-10-12"
+  },
+  {
+    "file": "linuxscout-pyarabic--docs_README.rst",
+    "source_url": "https://github.com/linuxscout/pyarabic/blob/master/docs/README.rst",
+    "git_blob": "249b19ef5ea39d4999382ee27ab415c03301c307",
+    "retrieved_on": "2026-10-12"
+  },
+  {
+    "file": "kan-bayashi-PytorchWaveNetVocoder--README.md",
+    "source_url": "https://github.com/kan-bayashi/PytorchWaveNetVocoder/blob/master/README.md",
+    "git_blob": "d3f8ca8dc1202cb7eaad9d3e5280909fc8869119",
+    "retrieved_on": "2026-10-12"
+  },
+  {
+    "file": "trixi-framework-TrixiAtmo.jl--README.md",
+    "source_url": "https://github.com/trixi-framework/TrixiAtmo.jl/blob/main/README.md",
+    "git_blob": "2cf52be3581d439bf5c6ea8cca544c7dae30f4e0",
+    "retrieved_on": "2026-10-12"
+  },
+  {
+    "file": "sbi-dev-sbi--README.md",
+    "source_url": "https://github.com/sbi-dev/sbi/blob/main/README.md",
+    "git_blob": "6cf7876bb3254444e60b73b72636999ff153321c",
+    "retrieved_on": "2026-10-12"
+  },
+  {
+    "file": "YaoleiQi-DSCNet--README.md",
+    "source_url": "https://github.com/YaoleiQi/DSCNet/blob/main/README.md",
+    "git_blob": "714b39e48d48659e3124dd70179c3ee412a489c0",
+    "retrieved_on": "2026-10-12"
+  },
+  {
+    "file": "TengHu-ActionWeaver--README.md",
+    "source_url": "https://github.com/TengHu/ActionWeaver/blob/main/README.md",
+    "git_blob": "cdbe809cf313c12964161e34d12fa1834a8f877a",
+    "retrieved_on": "2026-10-12"
+  },
+  {
+    "file": "braindecode-braindecode--README.rst",
+    "source_url": "https://github.com/braindecode/braindecode/blob/master/README.rst",
+    "git_blob": "b67b5121f28a7d7c0b69ebcbbbf97adefbca129d",
+    "retrieved_on": "2026-10-12"
+  }
+]

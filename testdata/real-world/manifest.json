@@ -1,0 +1,1196 @@
+{
+  "fixtures": [
+    {
+      "file": "inpho-topic-explorer--citation.bib",
+      "mode": "parse",
+      "entries": [
+        {
+          "type": "inproceedings",
+          "key": "MurdockAllen2015",
+          "title": "Visualization Techniques for Topic Model Checking",
+          "authors": [
+            "Jaimie Murdock",
+            "Colin Allen"
+          ]
+        }
+      ],
+      "diagnostics": [
+        "missing_comma"
+      ]
+    },
+    {
+      "file": "xwinxu-bayeSDE--CITATION.bib",
+      "mode": "parse",
+      "entries": [
+        {
+          "type": "article",
+          "key": "xu2021sdebnn",
+          "title": "Infinitely Deep Bayesian Neural Networks with Stochastic Differential Equations",
+          "authors": [
+            "Winnie Xu",
+            "Ricky T. Q. Chen",
+            "Xuechen Li",
+            "David Duvenaud"
+          ]
+        }
+      ],
+      "diagnostics": [
+        "unterminated_entry"
+      ]
+    },
+    {
+      "file": "Kkevsterrr-geneva--citation.bib",
+      "mode": "parse",
+      "entries": [
+        {
+          "type": "inproceedings",
+          "key": "geneva",
+          "title": "$\\mathsf{Geneva}$: Evolving Censorship Evasion",
+          "authors": [
+            "Kevin Bock",
+            "George Hughey",
+            "Xiao Qiang",
+            "Dave Levin"
+          ]
+        }
+      ],
+      "diagnostics": [
+        "undefined_macro"
+      ]
+    },
+    {
+      "file": "chromatix-team-chromatix--CITATION.bib",
+      "mode": "parse",
+      "entries": [
+        {
+          "type": "article",
+          "key": "chromatix_2026",
+          "title": "Chromatix: a differentiable, GPU-accelerated wave-optics library",
+          "authors": [
+            "Diptodip Deb",
+            "Gert-Jan Both",
+            "Eric Bezzam",
+            "Amit Kohli",
+            "Siqi Yang",
+            "Amey Chaware",
+            "Cédric Allier",
+            "Changjia Cai",
+            "Geneva Anderberg",
+            "M. Hossein Eybposh",
+            "Magdalena C. Schneider",
+            "Rainer Heintzmann",
+            "Fabrizio A. Rivera-Sanchez",
+            "Corey Simmerer",
+            "Guanghan Meng",
+            "Jovan Tormes-Vaquerano",
+            "SeungYun Han",
+            "Sibi Chakravarthy Shanmugavel",
+            "Teja Maruvada",
+            "Xi Yang",
+            "Yewon Kim",
+            "Benedict Diederich",
+            "Chulmin Joo",
+            "Laura Waller",
+            "Nicholas J. Durr",
+            "Nicolas C. Pegard",
+            "Patrick J. La Rivière",
+            "Roarke Horstmeyer",
+            "Shwetadwip Chowdhury",
+            "Srinivas C. Turaga"
+          ]
+        }
+      ],
+      "diagnostics": [
+        "undefined_macro"
+      ]
+    },
+    {
+      "file": "pharmcat-replicatebe.jl--CITATION.bib",
+      "mode": "parse",
+      "entries": [
+        {
+          "type": "article",
+          "key": "article",
+          "title": "Newton—Raphson and EM Algorithms for Linear Mixed-Effects Models for Repeated-Measures Data",
+          "authors": [
+            "LINDSTROM",
+            "M J.; BATES"
+          ],
+          "doi": "10.1080/01621459.1988.10478693"
+        },
+        {
+          "type": "article",
+          "key": "article",
+          "title": "Selecting the Best Linear Mixed Model under REML",
+          "authors": [
+            "Matthew Gurka"
+          ],
+          "doi": "10.1198/000313006X90396"
+        },
+        {
+          "type": "article",
+          "key": "article",
+          "title": "Covariance structure selection in general mixed models",
+          "authors": [
+            "Russ Wolfinger"
+          ],
+          "doi": "10.1080/03610919308813143"
+        },
+        {
+          "type": "article",
+          "key": "article",
+          "title": "Application of Linear Models in Animal Breeding",
+          "authors": [
+            "C R Henderson"
+          ]
+        },
+        {
+          "type": "article",
+          "key": "article",
+          "title": "Two-Stage Analysis Based on a Mixed Model: Large-Sample Asymptotic Theory and Small-Sample Simulation Results",
+          "authors": [
+            "F.G. Giesbrecht",
+            "Joseph Burns"
+          ],
+          "doi": "10.2307/2530872"
+        },
+        {
+          "type": "article",
+          "key": "article",
+          "title": "Small Sample Inference for Fixed Effects From Restricted Maximum Likelihood",
+          "authors": [
+            "Michael G. Kenward",
+            "James Roger"
+          ],
+          "doi": "10.2307/2533558"
+        },
+        {
+          "type": "article",
+          "key": "Julia-2017",
+          "title": "Julia: A fresh approach to numerical computing",
+          "authors": [
+            "Jeff Bezanson",
+            "Alan Edelman",
+            "Stefan Karpinski",
+            "Viral B Shah"
+          ],
+          "doi": "10.1137/141000671"
+        },
+        {
+          "type": "article",
+          "key": "RevelsLubinPapamarkou2016",
+          "title": "Forward-Mode Automatic Differentiation in Julia",
+          "authors": [
+            "J. Revels",
+            "M. Lubin",
+            "T. Papamarkou"
+          ]
+        },
+        {
+          "type": "article",
+          "key": "mogensen2018optim",
+          "title": "Optim: A mathematical optimization package for Julia",
+          "authors": [
+            "Patrick Kofod Mogensen",
+            "Asbjørn Nilsen Riseth"
+          ],
+          "doi": "10.21105/joss.00615"
+        }
+      ],
+      "diagnostics": [
+        "duplicate_key",
+        "duplicate_key",
+        "duplicate_key",
+        "duplicate_key",
+        "duplicate_key"
+      ]
+    },
+    {
+      "file": "juliaocean-aibecs.jl--CITATION.bib",
+      "mode": "parse",
+      "entries": [
+        {
+          "type": "misc",
+          "key": "AIBECS.jl",
+          "title": "AIBECS.Jl: A Tool for Exploring Global Marine Biogeochemical Cycles.",
+          "authors": [
+            "Benoît Pasquier",
+            "François W. Primeau",
+            "Seth G. John"
+          ],
+          "doi": "10.5281/zenodo.2864051."
+        },
+        {
+          "type": "article",
+          "key": "Pasquier_etal_JOSS_2022",
+          "title": "AIBECS.Jl: A Tool for Exploring Global Marine Biogeochemical Cycles.",
+          "authors": [
+            "Benoît Pasquier",
+            "François W. Primeau",
+            "Seth G. John"
+          ],
+          "doi": "10.21105/joss.03814"
+        },
+        {
+          "type": "article",
+          "key": "Primeau_etal_2013",
+          "title": "Southern Ocean nutrient trapping and the efficiency of the biological pump",
+          "authors": [
+            "F. W. Primeau",
+            "M. Holzer",
+            "T. DeVries"
+          ],
+          "doi": "10.1002/jgrc.20181"
+        },
+        {
+          "type": "article",
+          "key": "DeVries_2014",
+          "title": "The oceanic anthropogenic CO2 sink: Storage, air-sea fluxes, and transports over the industrial era",
+          "authors": [
+            "Tim DeVries"
+          ],
+          "doi": "10.1002/2013GB004739"
+        },
+        {
+          "type": "article",
+          "key": "DeVries_Primeau_2011",
+          "title": "Dynamically and Observationally Constrained Estimates of Water-Mass Distributions and Ages in the Global Ocean",
+          "authors": [
+            "Tim DeVries",
+            "François Primeau"
+          ],
+          "doi": "10.1175/JPO-D-10-05011.1"
+        },
+        {
+          "type": "article",
+          "key": "Archer_etal_2000",
+          "title": "Atmospheric pCO2 sensitivity to the biological pump in the ocean",
+          "authors": [
+            "David E. Archer",
+            "Gidon Eshel",
+            "Arne Winguth",
+            "Wallace Broecker",
+            "Ray Pierrehumbert",
+            "Michael Tobis",
+            "Robert Jacob"
+          ],
+          "doi": "10.1029/1999GB001216"
+        },
+        {
+          "type": "book",
+          "key": "Sarmiento_Gruber_2006",
+          "title": "Ocean Biogeochemical Dynamics",
+          "authors": [
+            "J. L. Sarmiento",
+            "N. Gruber"
+          ]
+        },
+        {
+          "type": "article",
+          "key": "DeVries_Holzer_2019",
+          "title": "Radiocarbon and Helium Isotope Constraints on Deep Ocean Ventilation and Mantle-3He Sources",
+          "authors": [
+            "Tim DeVries",
+            "Mark Holzer"
+          ],
+          "doi": "10.1029/2018JC014716"
+        },
+        {
+          "type": "article",
+          "key": "Holzer_etal_2021",
+          "title": "",
+          "authors": [
+            "Mark Holzer",
+            "Tim DeVries",
+            "Casimir de Lavergne"
+          ],
+          "doi": "10.1038/s41467-021-24648-x"
+        },
+        {
+          "type": "article",
+          "key": "Forget_2010",
+          "title": "Mapping Ocean Observations in a Dynamical Framework: A 2004–06 Ocean Atlas",
+          "authors": [
+            "Gaël Forget"
+          ],
+          "doi": "10.1175/2009JPO4043.1"
+        },
+        {
+          "type": "article",
+          "key": "Haine_Hall_JPhysOcn_2002",
+          "title": "A Generalized Transport Theory: Water-Mass Composition and Age",
+          "authors": [
+            "Thomas W. N. Haine",
+            "Timothy M. Hall"
+          ],
+          "doi": "10.1175/1520-0485(2002)032<1932:AGTTWM>2.0.CO;2"
+        },
+        {
+          "type": "article",
+          "key": "Haine_etal_JAMES_2025",
+          "title": "A Review of Green's Function Methods for Tracer Timescales and Pathways in Ocean Models",
+          "authors": [
+            "Thomas W. N. Haine",
+            "Stephen M. Griffies",
+            "Geoffrey Gebbie",
+            "Wenrui Jiang"
+          ],
+          "doi": "10.1029/2024MS004637"
+        },
+        {
+          "type": "software",
+          "key": "gebbie_2024_14533209",
+          "title": "OceanGreensFunctionMethods.jl: Julia software package with pedagogical box model",
+          "authors": [
+            "Geoffrey Gebbie",
+            "Thomas W. N. Haine",
+            "Stephen M. Griffies",
+            "Wenrui Jiang",
+            "Benoît Pasquier"
+          ],
+          "doi": "10.5281/zenodo.14533209"
+        },
+        {
+          "type": "article",
+          "key": "Chien_etal_2016",
+          "title": "Effects of African dust deposition on phytoplankton in the western tropical Atlantic Ocean off Barbados",
+          "authors": [
+            "Chia-Te Chien",
+            "Katherine R. M. Mackey",
+            "Stephanie Dutkiewicz",
+            "Natalie M. Mahowald",
+            "Joseph M. Prospero",
+            "Adina Paytan"
+          ],
+          "doi": "10.1002/2015GB005334"
+        },
+        {
+          "type": "article",
+          "key": "Kok_etal_2021b",
+          "title": "Contribution of the world's main dust source regions to the global cycle of desert dust",
+          "authors": [
+            "J. F. Kok",
+            "A. A. Adebiyi",
+            "S. Albani",
+            "Y. Balkanski",
+            "R. Checa-Garcia",
+            "M. Chin",
+            "P. R. Colarco",
+            "D. S. Hamilton",
+            "Y. Huang",
+            "A. Ito",
+            "M. Klose",
+            "L. Li",
+            "N. M. Mahowald",
+            "R. L. Miller",
+            "V. Obiso",
+            "C. Pérez García-Pando",
+            "A. Rocha-Lima",
+            "J. S. Wan"
+          ],
+          "doi": "10.5194/acp-21-8169-2021"
+        },
+        {
+          "type": "article",
+          "key": "Adebiyi_etal_2020",
+          "title": "Dust Constraints from joint Observational-Modelling-experiMental analysis (dustcoMM): comparison with measurements and model simulations",
+          "authors": [
+            "A. A. Adebiyi",
+            "J. F. Kok",
+            "Y. Wang",
+            "A. Ito",
+            "D. A. Ridley",
+            "P. Nabat",
+            "C. Zhao"
+          ],
+          "doi": "10.5194/acp-20-829-2020"
+        },
+        {
+          "type": "article",
+          "key": "Kok_etal_2021a",
+          "title": "Improved representation of the global dust cycle using observational constraints on dust properties and abundance",
+          "authors": [
+            "J. F. Kok",
+            "A. A. Adebiyi",
+            "S. Albani",
+            "Y. Balkanski",
+            "R. Checa-Garcia",
+            "M. Chin",
+            "P. R. Colarco",
+            "D. S. Hamilton",
+            "Y. Huang",
+            "A. Ito",
+            "M. Klose",
+            "D. M. Leung",
+            "L. Li",
+            "N. M. Mahowald",
+            "R. L. Miller",
+            "V. Obiso",
+            "C. Pérez García-Pando",
+            "A. Rocha-Lima",
+            "J. S. Wan",
+            "C. A. Whicker"
+          ],
+          "doi": "10.5194/acp-21-8127-2021"
+        },
+        {
+          "type": "article",
+          "key": "Scanza_etal_2018",
+          "title": "Atmospheric processing of iron in mineral and combustion aerosols: development of an intermediate-complexity mechanism suitable for Earth system models",
+          "authors": [
+            "R. A. Scanza",
+            "D. S. Hamilton",
+            "C. Perez Garcia-Pando",
+            "C. Buck",
+            "A. Baker",
+            "N. M. Mahowald"
+          ],
+          "doi": "10.5194/acp-18-14175-2018"
+        },
+        {
+          "type": "article",
+          "key": "Amante_Eakins_2009",
+          "title": "ETOPO1 1 arc-minute global relief model: procedures, data sources and analysis",
+          "authors": [
+            "Christopher Amante",
+            "Barry W Eakins"
+          ],
+          "doi": "10.7289/V5C8276M"
+        },
+        {
+          "type": "misc",
+          "key": "Dai_2017",
+          "title": "Dai and Trenberth Global River Flow and Continental Discharge Dataset",
+          "authors": [
+            "Aiguo Dai"
+          ],
+          "doi": "10.5065/D6V69H1T"
+        },
+        {
+          "type": "article",
+          "key": "Dai_Trenberth_2002",
+          "title": "Estimates of Freshwater Discharge from Continents: Latitudinal and Seasonal Variations",
+          "authors": [
+            "Aiguo Dai",
+            "Kevin E. Trenberth"
+          ],
+          "doi": "10.1175/1525-7541(2002)003<0660:EOFDFC>2.0.CO;2"
+        },
+        {
+          "type": "article",
+          "key": "Dai_etal_2009",
+          "title": "Changes in Continental Freshwater Discharge from 1948 to 2004",
+          "authors": [
+            "Aiguo Dai",
+            "Taotao Qian",
+            "Kevin E. Trenberth",
+            "John D. Milliman"
+          ],
+          "doi": "10.1175/2008JCLI2592.1"
+        },
+        {
+          "type": "inbook",
+          "key": "Dai_2016",
+          "title": "Historical and Future Changes in Streamflow and Continental Runoff",
+          "authors": [
+            "Aiguo Dai"
+          ],
+          "doi": "10.1002/9781118971772.ch2"
+        },
+        {
+          "type": "article",
+          "key": "Luijendijk_etal_2020",
+          "title": "Fresh groundwater discharge insignificant for the world's oceans but important for coastal ecosystems",
+          "authors": [
+            "Elco Luijendijk",
+            "Tom Gleeson",
+            "Nils Moosdorf"
+          ],
+          "doi": "10.1038/s41467-020-15064-8"
+        },
+        {
+          "type": "misc",
+          "key": "luijendijk_etal_2019",
+          "title": "Geospatial data and model results for a global model study of coastal groundwater discharge",
+          "authors": [
+            "Elco Luijendijk",
+            "Tom Gleeson",
+            "Nils Moosdorf"
+          ],
+          "doi": "10.1594/PANGAEA.907641"
+        },
+        {
+          "type": "article",
+          "key": "Wise_etal_GRL_2026",
+          "title": "Differing Controls on the Cycling of Neodymium in the Atlantic and the Pacific",
+          "authors": [
+            "Paige M. Wise",
+            "Benoît Pasquier",
+            "Seth G. John",
+            "Sophia K. V. Hines"
+          ],
+          "doi": "10.1029/2025GL117334"
+        },
+        {
+          "type": "article",
+          "key": "Du_etal_Nature_2025",
+          "title": "Abyssal seafloor as a key driver of ocean trace-metal biogeochemical cycles",
+          "authors": [
+            "Jianghui Du",
+            "Brian A. Haley",
+            "James McManus",
+            "Patrick Blaser",
+            "Jörg Rickli",
+            "Derek Vance"
+          ],
+          "doi": "10.1038/s41586-025-09038-3"
+        },
+        {
+          "type": "article",
+          "key": "Liang_etal_GBC_2025",
+          "title": "Oligotrophic Ocean New Production Supported by Lateral Transport of Dissolved Organic Nutrients",
+          "authors": [
+            "Zhou Liang",
+            "Robert T. Letscher",
+            "Angela N. Knapp"
+          ],
+          "doi": "10.1029/2024GB008345"
+        },
+        {
+          "type": "article",
+          "key": "John_etal_GBC_2024",
+          "title": "Biogeochemical Fluxes of Nickel in the Global Oceans Inferred From a Diagnostic Model",
+          "authors": [
+            "Seth G. John",
+            "Hengdi Liang",
+            "Benoît Pasquier",
+            "Mark Holzer",
+            "Sam Silva"
+          ],
+          "doi": "10.1029/2023GB008018"
+        },
+        {
+          "type": "article",
+          "key": "Du_GMD_2023",
+          "title": "SedTrace 1.0: a Julia-based framework for generating and running reactive-transport models of marine sediment diagenesis specializing in trace elements and isotopes",
+          "authors": [
+            "Jianghui Du"
+          ],
+          "doi": "10.5194/gmd-16-5865-2023"
+        },
+        {
+          "type": "article",
+          "key": "Pasquier_etal_GMD_2022",
+          "title": "GNOM v1.0: an optimized steady-state model of the modern marine neodymium cycle",
+          "authors": [
+            "Benoît Pasquier",
+            "Sophia K. V. Hines",
+            "Hengdi Liang",
+            "Yingzhe Wu",
+            "Steven L. Goldstein",
+            "Seth G. John"
+          ],
+          "doi": "10.5194/gmd-15-4625-2022"
+        },
+        {
+          "type": "misc",
+          "key": "GNOM_software",
+          "title": "GNOM: An optimized steady-state model of the modern global marine neodymium cycle",
+          "authors": [
+            "Benoît Pasquier",
+            "Sophia K. V. Hines",
+            "Hengdi Liang",
+            "Yingzhe Wu",
+            "Steven L. Goldstein",
+            "Seth G. John"
+          ],
+          "doi": "10.5281/zenodo.5651295"
+        },
+        {
+          "type": "article",
+          "key": "White_etal_JournalofOpenResearchSoftware_2019",
+          "title": "DataDeps.Jl: Repeatable Data Setup for Reproducible Data Science",
+          "authors": [
+            "Lyndon White",
+            "Roberto Togneri",
+            "Wei Liu",
+            "Mohammed Bennamoun"
+          ],
+          "doi": "10.5334/jors.244"
+        }
+      ],
+      "diagnostics": [
+        "missing_comma"
+      ]
+    },
+    {
+      "file": "numpy-numpy--CITATION.bib",
+      "mode": "parse",
+      "entries": [
+        {
+          "type": "article",
+          "key": "2020NumPy-Array",
+          "title": "Array programming with NumPy",
+          "authors": [
+            "Charles R. Harris",
+            "K. Jarrod Millman",
+            "Stéfan J van der Walt",
+            "Ralf Gommers",
+            "Pauli Virtanen",
+            "David Cournapeau",
+            "Eric Wieser",
+            "Julian Taylor",
+            "Sebastian Berg",
+            "Nathaniel J. Smith",
+            "Robert Kern",
+            "Matti Picus",
+            "Stephan Hoyer",
+            "Marten H. van Kerkwijk",
+            "Matthew Brett",
+            "Allan Haldane",
+            "Jaime Fernández del Río",
+            "Mark Wiebe",
+            "Pearu Peterson",
+            "Pierre Gérard-Marchant",
+            "Kevin Sheppard",
+            "Tyler Reddy",
+            "Warren Weckesser",
+            "Hameer Abbasi",
+            "Christoph Gohlke",
+            "Travis E. Oliphant"
+          ],
+          "doi": "10.1038/s41586-020-2649-2"
+        }
+      ],
+      "diagnostics": []
+    },
+    {
+      "file": "a-herzog-mini-callcenter-simulator--CITATION.bib",
+      "mode": "parse",
+      "entries": [
+        {
+          "type": "book",
+          "key": "herzog2017callcenter",
+          "title": "Callcenter - Analyse und Management - Modellierung und Optimierung mit Warteschlangensystemen",
+          "authors": [
+            "Alexander Herzog"
+          ],
+          "doi": "10.1007/978-3-658-18309-7"
+        },
+        {
+          "type": "software",
+          "key": "minicallcentersimulator",
+          "title": "Mini-Callcenter-Simulator",
+          "authors": [
+            "Alexander Herzog"
+          ],
+          "doi": "10.5281/zenodo.12798331"
+        }
+      ],
+      "diagnostics": [
+        "missing_comma"
+      ]
+    },
+    {
+      "file": "e2nIEE-pandapower--CITATION.bib",
+      "mode": "parse",
+      "entries": [
+        {
+          "type": "article",
+          "key": "pandapower.2018",
+          "title": "pandapower — An Open-Source Python Tool for Convenient Modeling, Analysis, and Optimization of Electric Power Systems",
+          "authors": [
+            "L. Thurner",
+            "A. Scheidler",
+            "F. Schäfer",
+            "J. Menke",
+            "J. Dollichon",
+            "F. Meier",
+            "S. Meinecke",
+            "M. Braun"
+          ],
+          "doi": "10.1109/TPWRS.2018.2829021"
+        }
+      ],
+      "diagnostics": []
+    },
+    {
+      "file": "GeoStat-Framework-GSTools--CITATION.bib",
+      "mode": "parse",
+      "entries": [
+        {
+          "type": "article",
+          "key": "gmd-15-3161-2022",
+          "title": "GSTools v1.3: a toolbox for geostatistical modelling in Python",
+          "authors": [
+            "S. Müller",
+            "L. Schüler",
+            "A. Zech",
+            "F. Heße"
+          ],
+          "doi": "10.5194/gmd-15-3161-2022"
+        }
+      ],
+      "diagnostics": []
+    },
+    {
+      "file": "bat-BAT.jl--CITATION.bib",
+      "mode": "parse",
+      "entries": [
+        {
+          "type": "article",
+          "key": "Schulz:2021BAT",
+          "title": "BAT.jl: A Julia-Based Tool for Bayesian Inference",
+          "authors": [
+            "Oliver Schulz",
+            "Frederik Beaujean",
+            "Allen Caldwell",
+            "Cornelius Grunwald",
+            "Vasyl Hafych",
+            "Kevin Kröninger",
+            "Salvatore La Cagnina",
+            "Lars Röhrig",
+            "Lolian Shtembari"
+          ],
+          "doi": "10.1007/s42979-021-00626-4"
+        }
+      ],
+      "diagnostics": []
+    },
+    {
+      "file": "ParallelDots-generic-sku-detection-benchmark--README.md",
+      "mode": "extract",
+      "entries": [
+        {
+          "type": "misc",
+          "key": "varadarajan2019benchmark",
+          "title": "Benchmark for Generic Product Detection: A Low Data Baseline for Dense Object Detection",
+          "authors": [
+            "Srikrishna Varadarajan",
+            "Sonaal Kant",
+            "Muktabh Mayank Srivastava"
+          ]
+        },
+        {
+          "type": "inproceedings",
+          "key": "goldman2019dense",
+          "title": "Precise Detection in Densely Packed Scenes",
+          "authors": [
+            "Eran Goldman",
+            "Roei Herzig",
+            "Aviv Eisenschtat",
+            "Jacob Goldberger",
+            "Tal Hassner"
+          ]
+        },
+        {
+          "type": "inproceedings",
+          "key": "Zhang:2007:WW:1775614.1775708",
+          "title": "Where's the Weet-bix?",
+          "authors": [
+            "Yuhang Zhang",
+            "Lei Wang",
+            "Richard Hartley",
+            "Hongdong Li"
+          ]
+        },
+        {
+          "type": "inproceedings",
+          "key": "10.1117/12.2179127",
+          "title": "Toward retail product recognition on grocery shelves",
+          "authors": [
+            "Gül Varol",
+            "Rıdvan Salih Kuzu"
+          ],
+          "doi": "10.1117/12.2179127"
+        },
+        {
+          "type": "inproceedings",
+          "key": "Fuchs:2019:TIP:3365871.3365899",
+          "title": "Towards Identification of Packaged Products via Computer Vision: Convolutional Neural Networks for Object Detection and Image Classification in Retail Environments",
+          "authors": [
+            "Klaus Fuchs",
+            "Tobias Grundmann",
+            "Elgar Fleisch"
+          ],
+          "doi": "10.1145/3365871.3365899"
+        },
+        {
+          "type": "inproceedings",
+          "key": "10.1007/978-3-319-10605-2_29",
+          "title": "Recognizing Products: A Per-exemplar Multi-label Image Classification Approach",
+          "authors": [
+            "Marian George",
+            "Christian Floerkemeier"
+          ]
+        },
+        {
+          "type": "inproceedings",
+          "key": "Geng:2018:FGP:3240508.3240522",
+          "title": "Fine-Grained Grocery Product Recognition by One-Shot Learning",
+          "authors": [
+            "Weidong Geng",
+            "Feilin Han",
+            "Jiangke Lin",
+            "Liuyi Zhu",
+            "Jieming Bai",
+            "Suzhen Wang",
+            "Lin He",
+            "Qiang Xiao",
+            "Zhangjiong Lai"
+          ],
+          "doi": "10.1145/3240508.3240522"
+        }
+      ],
+      "diagnostics": []
+    },
+    {
+      "file": "SCIR-HI-Huatuo-Llama-Med-Chinese--README.md",
+      "mode": "extract",
+      "entries": [
+        {
+          "type": "article",
+          "key": "10.1145/3686807",
+          "title": "Knowledge-tuning Large Language Models with Structured Medical Knowledge Bases for Trustworthy Response Generation in Chinese",
+          "authors": [
+            "Haochun Wang",
+            "Sendong Zhao",
+            "Zewen Qiang",
+            "Zijian Li",
+            "Chi Liu",
+            "Nuwa Xi",
+            "Yanrui Du",
+            "Bing Qin",
+            "Ting Liu"
+          ],
+          "doi": "10.1145/3686807"
+        },
+        {
+          "type": "misc",
+          "key": "du2023calla",
+          "title": "The CALLA Dataset: Probing LLMs' Interactive Knowledge Acquisition from Chinese Medical Literature",
+          "authors": [
+            "Yanrui Du",
+            "Sendong Zhao",
+            "Muzhen Cai",
+            "Jianyu Chen",
+            "Haochun Wang",
+            "Yuhan Chen",
+            "Haoqiang Guo",
+            "Bing Qin"
+          ]
+        }
+      ],
+      "diagnostics": []
+    },
+    {
+      "file": "mantzaris-lmdiskann.jl--README.md",
+      "mode": "extract",
+      "entries": [
+        {
+          "type": "article",
+          "key": "Mantzaris2025",
+          "title": "LMDiskANN.jl: An Implementation of the Low Memory Disk Approximate Nearest Neighbors Search Algorithm",
+          "authors": [
+            "Alexander V. Mantzaris"
+          ],
+          "doi": "10.21105/joss.08199"
+        }
+      ],
+      "diagnostics": []
+    },
+    {
+      "file": "tysam-code-hlb-gpt--README.md",
+      "mode": "extract",
+      "entries": [
+        {
+          "type": "software",
+          "key": "hlb-gpt_2024",
+          "title": "hlb-gpt",
+          "authors": [
+            "Fern"
+          ]
+        }
+      ],
+      "diagnostics": []
+    },
+    {
+      "file": "PengyiZhang-SlimYOLOv3--README.md",
+      "mode": "extract",
+      "entries": [
+        {
+          "type": "article",
+          "key": "",
+          "title": "SlimYOLOv3: Narrower, Faster and Better for Real-Time UAV Applications",
+          "authors": [
+            "Pengyi Zhang",
+            "Yunxin Zhong",
+            "Xiaoqiong Li"
+          ]
+        }
+      ],
+      "diagnostics": [
+        "missing_key"
+      ]
+    },
+    {
+      "file": "sintefore-timestruct.jl--README.md",
+      "mode": "extract",
+      "entries": [
+        {
+          "type": "article",
+          "key": "Flatberg2025",
+          "title": "TimeStruct.jl – flexible multi-horizon time modelling in optimization models",
+          "authors": [
+            "Truls Flatberg",
+            "Julian Straus",
+            "Lars Hellemo"
+          ],
+          "doi": "10.21105/joss.07578"
+        }
+      ],
+      "diagnostics": []
+    },
+    {
+      "file": "linuxscout-pyarabic--docs_README.rst",
+      "mode": "extract",
+      "entries": [
+        {
+          "type": "misc",
+          "key": "zerrouki2012pyarabic",
+          "title": "pyarabic, An Arabic language library for Python",
+          "authors": [
+            "Taha Zerrouki"
+          ]
+        }
+      ],
+      "diagnostics": [
+        "unterminated_entry"
+      ]
+    },
+    {
+      "file": "kan-bayashi-PytorchWaveNetVocoder--README.md",
+      "mode": "extract",
+      "entries": [
+        {
+          "type": "inproceedings",
+          "key": "tamamori2017speaker",
+          "title": "Speaker-dependent WaveNet vocoder",
+          "authors": [
+            "Akira Tamamori",
+            "Tomoki Hayashi",
+            "Kazuhiro Kobayashi",
+            "Kazuya Takeda",
+            "Tomoki Toda"
+          ]
+        },
+        {
+          "type": "inproceedings",
+          "key": "hayashi2017multi",
+          "title": "An Investigation of Multi-Speaker Training for WaveNet Vocoder",
+          "authors": [
+            "Tomoki Hayashi",
+            "Akira Tamamori",
+            "Kazuhiro Kobayashi",
+            "Kazuya Takeda",
+            "Tomoki Toda"
+          ]
+        },
+        {
+          "type": "article",
+          "key": "hayashi2018sp",
+          "title": "複数話者WaveNetボコーダに関する調査",
+          "authors": [
+            "林知樹",
+            "小林和弘",
+            "玉森聡",
+            "武田一哉",
+            "戸田智基"
+          ]
+        }
+      ],
+      "diagnostics": [
+        "missing_comma",
+        "missing_equals"
+      ]
+    },
+    {
+      "file": "trixi-framework-TrixiAtmo.jl--README.md",
+      "mode": "extract",
+      "entries": [
+        {
+          "type": "software",
+          "key": "trixiatmo_18297711",
+          "title": "TrixiAtmo.jl",
+          "authors": [
+            "Marco Artiano",
+            "Gregor Gassner",
+            "Benedict Geihe",
+            "Tristan Montoya",
+            "Hendrik Ranocha",
+            "Andrés Rueda-Ramírez",
+            "Michael Schlottke-Lakemper"
+          ],
+          "doi": "10.5281/zenodo.18297711"
+        }
+      ],
+      "diagnostics": [
+        "missing_comma",
+        "missing_equals"
+      ]
+    },
+    {
+      "file": "sbi-dev-sbi--README.md",
+      "mode": "extract",
+      "entries": [
+        {
+          "type": "article",
+          "key": "BoeltsDeistler_sbi_2025",
+          "title": "sbi reloaded: a toolkit for simulation-based inference workflows",
+          "authors": [
+            "Jan Boelts",
+            "Michael Deistler",
+            "Manuel Gloeckler",
+            "Álvaro Tejero-Cantero",
+            "Jan-Matthis Lueckmann",
+            "Guy Moss",
+            "Peter Steinbach",
+            "Thomas Moreau",
+            "Fabio Muratore",
+            "Julia Linhart",
+            "Conor Durkan",
+            "Julius Vetter",
+            "Benjamin Kurt Miller",
+            "Maternus Herold",
+            "Abolfazl Ziaeemehr",
+            "Matthijs Pals",
+            "Theo Gruner",
+            "Sebastian Bischoff",
+            "Nastya Krouglova",
+            "Richard Gao",
+            "Janne K. Lappalainen",
+            "Bálint Mucsányi",
+            "Felix Pei",
+            "Auguste Schulz",
+            "Zinovia Stefanidi",
+            "Pedro Rodrigues",
+            "Cornelius Schröder",
+            "Faried Abu Zaid",
+            "Jonas Beck",
+            "Jaivardhan Kapoor",
+            "David S. Greenberg",
+            "Pedro J. Gonçalves",
+            "Jakob H. Macke"
+          ],
+          "doi": "10.21105/joss.07754"
+        },
+        {
+          "type": "article",
+          "key": "tejero-cantero2020sbi",
+          "title": "sbi: A toolkit for simulation-based inference",
+          "authors": [
+            "Alvaro Tejero-Cantero",
+            "Jan Boelts",
+            "Michael Deistler",
+            "Jan-Matthis Lueckmann",
+            "Conor Durkan",
+            "Pedro J. Gonçalves",
+            "David S. Greenberg",
+            "Jakob H. Macke"
+          ],
+          "doi": "10.21105/joss.02505"
+        }
+      ],
+      "diagnostics": []
+    },
+    {
+      "file": "YaoleiQi-DSCNet--README.md",
+      "mode": "extract",
+      "entries": [],
+      "diagnostics": []
+    },
+    {
+      "file": "TengHu-ActionWeaver--README.md",
+      "mode": "extract",
+      "entries": [
+        {
+          "type": "software",
+          "key": "Teng_Hu_ActionWeaver_2024",
+          "title": "ActionWeaver: Application Framework for LLMs",
+          "authors": [
+            "Teng Hu"
+          ]
+        }
+      ],
+      "diagnostics": []
+    },
+    {
+      "file": "braindecode-braindecode--README.rst",
+      "mode": "extract",
+      "entries": [
+        {
+          "type": "software",
+          "key": "braindecode",
+          "title": "Braindecode: toolbox for decoding raw electrophysiological brain data with deep learning models",
+          "authors": [
+            "Bruno Aristimunha",
+            "Pierre Guetschel",
+            "Martin Wimpff",
+            "Lukas Gemein",
+            "Cedric Rommel",
+            "Hubert Banville",
+            "Maciej Sliwowski",
+            "Daniel Wilson",
+            "Simon Brandt",
+            "Théo Gnassounou",
+            "Joseph Paillard",
+            "Bruna Junqueira Lopes",
+            "Sara Sedlar",
+            "Thomas Moreau",
+            "Sylvain Chevallier",
+            "Alexandre Gramfort",
+            "Robin Tibor Schirrmeister"
+          ],
+          "doi": "10.5281/zenodo.17699192"
+        },
+        {
+          "type": "article",
+          "key": "HBM:HBM23730",
+          "title": "Deep learning with convolutional neural networks for EEG decoding and visualization",
+          "authors": [
+            "Robin Tibor Schirrmeister",
+            "Jost Tobias Springenberg",
+            "Lukas Dominique Josef Fiederer",
+            "Martin Glasstetter",
+            "Katharina Eggensperger",
+            "Michael Tangermann",
+            "Frank Hutter",
+            "Wolfram Burgard",
+            "Tonio Ball"
+          ],
+          "doi": "10.1002/hbm.23730"
+        },
+        {
+          "type": "article",
+          "key": "10.3389/fnins.2013.00267",
+          "title": "MEG and EEG data analysis with MNE-Python",
+          "authors": [
+            "Alexandre Gramfort",
+            "Martin Luessi",
+            "Eric Larson",
+            "Denis Engemann",
+            "Daniel Strohmeier",
+            "Christian Brodbeck",
+            "Roman Goj",
+            "Mainak Jas",
+            "Teon Brooks",
+            "Lauri Parkkonen",
+            "Matti Hämäläinen"
+          ],
+          "doi": "10.3389/fnins.2013.00267"
+        }
+      ],
+      "diagnostics": []
+    }
+  ]
+}
