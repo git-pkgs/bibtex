@@ -90,6 +90,7 @@ func TestParseSyntax(t *testing.T) {
 		{"concatenation", "@string{pre = \"Proc. \"}\n@misc{k, booktitle = pre # {ICSE} # \" 2024\"}", "k", "booktitle", "Proc. ICSE 2024", nil},
 		{"string parentheses", "@string(x = {X})\n@misc{k, note = x}", "k", "note", "X", nil},
 		{"macro case", "@STRING{Jnl = {J}}\n@misc{k, journal = JNL}", "k", "journal", "J", nil},
+		{"incomplete macro", "@string{x = {Ignored} # }\n@misc{k, title = x}", "k", titleField, "", []string{"missing_value"}},
 		{monthField, `@misc{k, month = OCT}`, "k", monthField, "October", nil},
 		{"undefined macro", `@misc{k, booktitle = CCS}`, "k", "booktitle", "CCS", []string{"undefined_macro"}},
 		{"number", `@misc{k, year = 2021}`, "k", "year", "2021", nil},
@@ -186,6 +187,72 @@ func TestParseWindows1252(t *testing.T) {
 	e := f.Entries[0]
 	if f.Encoding != "windows-1252" || e.Get(titleField) != "“Quoted”" || e.Authors()[0] != (bibtex.Name{First: "Jörg", Last: muller}) {
 		t.Fatalf("decoded %q %+v", e.Get(titleField), e.Authors())
+	}
+}
+
+func TestParseWindows1252Macros(t *testing.T) {
+	src := "@string{surname = {M\xfcller}}\n" +
+		"@string{author = surname # {, J\xf6rg}}\n" +
+		"@string{title = {  \x93Quoted\x94  } # surname}\n" +
+		"@misc{k, author = author, title = title # { \x80}}"
+	for _, extract := range []bool{false, true} {
+		var f *bibtex.File
+		var err error
+		if extract {
+			f, err = bibtex.Extract([]byte(src), bibtex.ParseOptions{})
+		} else {
+			f, err = bibtex.Read(strings.NewReader(src), bibtex.ParseOptions{})
+		}
+		if err != nil {
+			t.Fatal(err)
+		}
+		e := f.Entries[0]
+		if got := e.Text(titleField); got != "“Quoted” Müller €" {
+			t.Errorf("extract=%v: title %q", extract, got)
+		}
+		if got := e.Authors(); !reflect.DeepEqual(got, []bibtex.Name{{First: "Jörg", Last: muller}}) {
+			t.Errorf("extract=%v: authors %+v", extract, got)
+		}
+		if f.Strings[0].Value != muller || f.Strings[1].Value != "Müller, Jörg" || f.Strings[2].Value != " “Quoted” Müller" {
+			t.Errorf("extract=%v: strings %+v", extract, f.Strings)
+		}
+	}
+}
+
+func TestParseKeepsDuplicateEntries(t *testing.T) {
+	f, err := bibtex.Parse([]byte("@misc{Key, title = {First}}\n@misc{key, title = {Second}}"))
+	if err != nil {
+		t.Fatal(err)
+	}
+	if len(f.Entries) != 2 || f.Entries[0].Get(titleField) != "First" || f.Entries[1].Get(titleField) != "Second" {
+		t.Fatalf("entries %+v", f.Entries)
+	}
+	if got := codes(f.Diagnostics); !reflect.DeepEqual(got, []string{"duplicate_key"}) {
+		t.Fatalf("diagnostics %v", got)
+	}
+}
+
+func TestParseKeepsAuthorSyntaxAndTitleMath(t *testing.T) {
+	const author = "de la Cruz, Maria Elena, Jose Luis"
+	const title = `An $O(n^2)$ algorithm`
+	f, err := bibtex.Parse([]byte("@misc{k, author = {" + author + "}, title = {" + title + "}}"))
+	if err != nil {
+		t.Fatal(err)
+	}
+	e := f.Entries[0]
+	if got := e.Get("author"); got != author {
+		t.Fatalf("author %q", got)
+	}
+	want := []bibtex.Name{
+		{Von: deLa, Last: "Cruz"},
+		{First: "Maria", Last: "Elena"},
+		{First: "Jose", Last: "Luis"},
+	}
+	if got := e.Authors(); !reflect.DeepEqual(got, want) {
+		t.Fatalf("authors %+v", got)
+	}
+	if got := e.Text(titleField); got != title {
+		t.Fatalf("title %q", got)
 	}
 }
 

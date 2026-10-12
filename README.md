@@ -49,9 +49,13 @@ Use `Parse(data)` for bytes from a Git blob or another source and `ParseWithOpti
 
 `ParseNames` splits a value on `and` outside braces and applies BibTeX's rules for `First von Last`, `von Last, First` and `von Last, Jr, First`, including the brace and accent rules that assign a word to the von part. A fully braced name such as `{World Health Organization}` is returned whole in `Last` with `Literal` set, which is how BibTeX files mark organisations, and `and others` becomes a `Name` with `Others` set. On 5,248 names collected from `CITATION.bib` files and READMEs, the split matched pybtex except for comma-separated lists such as `Jifeng Dai, Yi Li, Kaiming He`, which this library reads as several names.
 
+The comma-list heuristic also reads the ambiguous `de la Cruz, Maria Elena, Jose Luis` as three names, although BibTeX reads it as one name with a Jr part. `Get("author")` retains the name syntax, including braces and commas, after macro expansion and whitespace folding, so callers can use a different name interpretation without parsing the file again.
+
 ### Errors
 
 Missing commas, missing keys, unclosed values, undefined macros, duplicate keys and similar problems are reported in `File.Diagnostics` with a code and position. An unclosed value ends at the next line that starts like an entry, and parsing resumes from that entry. Invalid options, UTF-16 input and exceeded limits return an error, matched with `errors.Is` against `ErrOptions`, `ErrUnsupported` and `ErrLimit` respectively; `errors.As` extracts the `*bibtex.Error` diagnostic.
+
+Duplicate citation keys are matched without regard to case and produce a `duplicate_key` diagnostic. All entries are retained in source order; callers choose which occurrence to use.
 
 ## Compatibility
 
@@ -60,6 +64,8 @@ The parser follows BibTeX's grammar: entries in braces or parentheses, quoted an
 Some behaviour is more forgiving than BibTeX because `CITATION.bib` files and README entries are often hand-written. An undefined macro's name is used as its value (`booktitle = CCS` gives `CCS`) and reported as a diagnostic. A name with two or more commas whose parts are each at least two words, such as `Jifeng Dai, Yi Li, Kaiming He`, is read as a list of names, where BibTeX rejects it. Input with invalid UTF-8 is decoded as Windows-1252 and reported through `File.Encoding`. Non-breaking and ideographic spaces count as whitespace between tokens.
 
 `PlainText` composes accent commands into precomposed characters using a table generated from Unicode 17.0.0, with a combining mark as the fallback where Unicode has no precomposed form. It replaces known symbols such as `\o`, `\ss` and `\LaTeX` and converts `--`, `---` and TeX quotes. Other commands are dropped and their arguments retained; math between `$` signs is returned unchanged.
+
+`Text("title")` preserves math too: `An $O(n^2)$ algorithm` keeps its dollar signs and TeX expression. Callers matching titles against services such as OpenAlex need to normalise math themselves.
 
 Out of scope: user-defined `@preamble` macros, output formatting, BibLaTeX data model checks and per-type required field validation.
 

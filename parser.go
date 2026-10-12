@@ -278,7 +278,8 @@ func (p *parser) stringDef(closer byte) {
 	if p.macros == nil {
 		p.macros = map[string]string{}
 	}
-	p.macros[name] = v
+	// Expand in the source encoding, then decode each completed value once.
+	p.macros[name] = string(p.buf)
 	p.file.Strings = append(p.file.Strings, Field{Name: name, Value: v, Position: p.position(nameStart)})
 	p.expectClose(closer)
 }
@@ -293,6 +294,7 @@ func (p *parser) value(closer byte, trim bool) (string, bool) {
 		p.skipSpace()
 		if p.pos >= p.end {
 			p.diag("missing_value", "expected value", p.pos)
+			p.buf = p.buf[:0]
 			return "", false
 		}
 		c := p.data[p.pos]
@@ -326,6 +328,7 @@ func (p *parser) value(closer byte, trim bool) (string, bool) {
 			} else {
 				p.diag("missing_value", "expected value", p.pos)
 			}
+			p.buf = p.buf[:0]
 			return "", false
 		}
 		if len(p.buf) > p.opts.MaxValueBytes {
@@ -341,7 +344,8 @@ func (p *parser) value(closer byte, trim bool) (string, bool) {
 	if p.blockquote {
 		p.buf = stripQuoteMarkers(p.buf)
 	}
-	v := p.decode(collapseSpace(p.buf, trim))
+	p.buf = collapseSpace(p.buf, trim)
+	v := p.decode(p.buf)
 	p.expanded += len(v)
 	if p.expanded > p.opts.MaxExpandedBytes {
 		p.fail(failure(ErrLimit, "expansion_limit", "expanded values exceed byte limit", p.position(p.pos)))

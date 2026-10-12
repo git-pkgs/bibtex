@@ -105,3 +105,50 @@ func TestExtractIgnoresNonEntries(t *testing.T) {
 		}
 	}
 }
+
+func TestExtractBOM(t *testing.T) {
+	src := "\ufeff  @misc{k, title = {Example}}"
+	f, err := bibtex.Extract([]byte(src), bibtex.ParseOptions{})
+	if err != nil {
+		t.Fatal(err)
+	}
+	if len(f.Entries) != 1 || f.Entries[0].Get(titleField) != "Example" {
+		t.Fatalf("entries %+v", f.Entries)
+	}
+	e := f.Entries[0]
+	if e.Start != len("\ufeff  ") || e.End != len(src) || e.Line != 1 || e.Column != 4 {
+		t.Fatalf("position %+v, span %d-%d", e.Position, e.Start, e.End)
+	}
+	src = "\ufeff```bibtex\n@misc{k, title = {Unclosed\n```\nUnrelated prose }"
+	f, err = bibtex.Extract([]byte(src), bibtex.ParseOptions{})
+	if err != nil {
+		t.Fatal(err)
+	}
+	if len(f.Entries) != 1 || f.Entries[0].Get(titleField) != "Unclosed" {
+		t.Fatalf("BOM-prefixed fence: %+v", f.Entries)
+	}
+}
+
+func TestExtractBoundsQuotedFences(t *testing.T) {
+	for _, prefix := range []string{"> ", "> > ", "  > "} {
+		for _, fence := range []string{"```", "~~~"} {
+			src := prefix + fence + "bibtex\n" +
+				prefix + "@misc{broken, title = {Unclosed\n" +
+				prefix + fence + "\n\nUnrelated prose with a brace }\n\n" +
+				"@misc{after, title = {After}}\n"
+			f, err := bibtex.Extract([]byte(src), bibtex.ParseOptions{})
+			if err != nil {
+				t.Fatal(err)
+			}
+			if got := entryKeys(f); !reflect.DeepEqual(got, []string{"broken", "after"}) {
+				t.Fatalf("prefix=%q fence=%q: keys %v", prefix, fence, got)
+			}
+			if got := f.Entries[0].Get(titleField); got != "Unclosed" {
+				t.Errorf("prefix=%q fence=%q: title %q", prefix, fence, got)
+			}
+			if f.Entries[0].End != strings.Index(src, prefix+fence+"\n") {
+				t.Errorf("prefix=%q fence=%q: end %d", prefix, fence, f.Entries[0].End)
+			}
+		}
+	}
+}

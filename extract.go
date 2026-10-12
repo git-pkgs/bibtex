@@ -33,11 +33,23 @@ func fencedBlocks(data []byte) [][2]int {
 }
 
 // fenceMarker reports the fence character and run length opening line, with
-// up to three spaces of indentation, and the text after the run.
+// up to three spaces of indentation and blockquote markers, and the text
+// after the run.
 func fenceMarker(line []byte) (byte, int, []byte) {
+	line = bytes.TrimPrefix(line, []byte("\xEF\xBB\xBF"))
 	i := 0
-	for i < len(line) && i < 3 && line[i] == ' ' {
+	for {
+		start := i
+		for i < len(line) && i-start < 3 && line[i] == ' ' {
+			i++
+		}
+		if i >= len(line) || line[i] != '>' {
+			break
+		}
 		i++
+		if i < len(line) && line[i] == ' ' {
+			i++
+		}
 	}
 	if i >= len(line) || (line[i] != '`' && line[i] != '~') {
 		return 0, 0, nil
@@ -113,7 +125,11 @@ func looksLikeEntry(data []byte, at int) bool {
 // entryLineStart is atLineStart that also accepts list markers, quote
 // markers and an inline code backtick before the @, as READMEs use.
 func entryLineStart(data []byte, at int) bool {
-	for i := at - 1; i >= 0; i-- {
+	start := 0
+	if bytes.HasPrefix(data, []byte("\xEF\xBB\xBF")) {
+		start = 3
+	}
+	for i := at - 1; i >= start; i-- {
 		switch data[i] {
 		case '\n':
 			return true
